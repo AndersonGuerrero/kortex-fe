@@ -1,0 +1,46 @@
+{
+  "header": {
+    "badge": "Extraction Engine",
+    "billingTitle": "Expenses & Billing",
+    "billingLabel": "Expenses",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode",
+    "logoutTitle": "Log out",
+    "logoutLabel": "Log Out"
+  },
+  "welcome": {
+    "title": "Welcome to the Extraction Panel!",
+    "subtitle": "Create document types and manage your examples to train and extract structured fields using artificial intelligence.",
+    "createDocumentType": "Create Document Type"
+  },
+  "stats": {
+    "documentTypes": "Document Types",
+    "activeModel": "Active Model",
+    "unassigned": "Unassigned",
+    "extractionAccuracy": "Extraction Accuracy",
+    "activeService": "Active Service"
+  },
+  "projects": {
+    "title": "Your Document Types",
+    "newDocumentType": "New Document Type",
+    "loading": "Loading document types...",
+    "retry": "Retry",
+    "emptyState": "You haven't created any document type yet.",
+    "createFirst": "Create your first document type",
+    "createdOn": "Created on {{date}}",
+    "viewDetails": "View details"
+  },
+  "modal": {
+    "title": "Create New Document Type",
+    "nameLabel": "Document Type Name",
+    "namePlaceholder": "E.g. Invoice, Contract, Payment Receipt",
+    "cancel": "Cancel",
+    "creating": "Creating...",
+    "create": "Create Document Type"
+  },
+  "errors": {
+    "loadDashboard": "Error loading the dashboard.",
+    "nameRequired": "The document type name is required.",
+    "createFailed": "Could not create the document type. Please try again."
+  }
+}

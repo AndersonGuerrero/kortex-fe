@@ -1,0 +1,24 @@
+{
+  "header": {
+    "subtitle": "Sign in to the extraction platform"
+  },
+  "errors": {
+    "fieldsRequired": "Please fill in all fields.",
+    "unexpected": "An unexpected error occurred. Please try again."
+  },
+  "google": {
+    "continueWith": "Continue with Google"
+  },
+  "divider": {
+    "or": "or"
+  },
+  "form": {
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Username",
+    "passwordLabel": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "signingIn": "Signing in...",
+    "submit": "Sign In"
+  }
+}

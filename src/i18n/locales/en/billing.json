@@ -1,0 +1,65 @@
+{
+  "header": {
+    "themeToggle": "Switch theme"
+  },
+  "loading": "Loading billing data…",
+  "retry": "Retry",
+  "accountBanner": {
+    "suspendedTitle": "Account Suspended",
+    "trialTitle": "Free Trial Period",
+    "activeTitle": "Active Account",
+    "suspendedDesc": "Your account has been suspended. Contact support to reactivate it.",
+    "trialDesc": "You've used {{used}} of {{limit}} USD of free credit.",
+    "activeDesc": "Your extractions are billed monthly to your registered payment method.",
+    "remaining": "{{amount}} remaining"
+  },
+  "stats": {
+    "monthSpend": "Spend this month",
+    "documentsExtracted": "Documents extracted",
+    "paymentMethod": "Payment method",
+    "noCard": "No card",
+    "paidInvoices": "Paid invoices"
+  },
+  "chart": {
+    "title": "Usage by period",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "empty": "No activity in this period",
+    "weekLabelPrefix": "Wk {{date}}",
+    "documents": "documents"
+  },
+  "invoiceStatus": {
+    "draft": "Draft",
+    "pending": "Pending",
+    "paid": "Paid",
+    "failed": "Failed"
+  },
+  "invoices": {
+    "title": "Invoice History",
+    "emptyTitle": "You don't have any invoices yet.",
+    "emptyHint": "Invoices are generated on the 1st of each month."
+  },
+  "paymentMethods": {
+    "title": "Payment Methods",
+    "emptyTitle": "You don't have any payment methods registered.",
+    "emptyHint": "Add a card to keep using Kortex once your trial credit runs out.",
+    "primary": "Primary",
+    "deleteTitle": "Remove payment method",
+    "confirmDelete": "Remove this payment method?",
+    "deleteFailed": "Could not remove the payment method."
+  },
+  "wompi": {
+    "opening": "Opening Wompi…",
+    "addCard": "Add card with Wompi",
+    "hintPrefix": "🔒 A verification charge of",
+    "hintSuffix": "will be made through Wompi's official checkout. Your card will be saved for future monthly charges."
+  },
+  "errors": {
+    "loadFailed": "Error loading billing data. Please try again.",
+    "periodLoadFailed": "Error loading usage for this period.",
+    "widgetLoadFailed": "The Wompi widget could not load. Check your internet connection.",
+    "saveCardFailed": "Error saving the card.",
+    "openWidgetFailed": "Error opening the Wompi widget."
+  }
+}

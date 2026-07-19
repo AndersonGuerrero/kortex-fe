@@ -1,0 +1,716 @@
+/* =========================================================
+   Billing.css — Estilos para la página de Gastos & Facturación
+   Komparte las variables CSS y patrones de App.css (dark/light).
+   ========================================================= */
+
+/* ── Layout ──────────────────────────────────────────────── */
+.billing-container {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Outfit', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.billing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: var(--glass-bg, rgba(255,255,255,0.04));
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.btn-back:hover {
+  background: var(--surface-hover, rgba(255,255,255,0.06));
+  border-color: var(--accent-blue, #6366f1);
+}
+
+/* ── Main ────────────────────────────────────────────────── */
+.billing-main {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Loading / Error ─────────────────────────────────────── */
+.billing-loading,
+.billing-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.billing-error {
+  flex-direction: row;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--danger, #ef4444);
+}
+
+.btn-retry {
+  margin-left: auto;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--danger, #ef4444);
+  background: transparent;
+  color: var(--danger, #ef4444);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-retry:hover { background: rgba(239,68,68,0.12); }
+
+/* ── Spin animation ──────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 0.9s linear infinite; }
+
+/* ── Account Banner ──────────────────────────────────────── */
+.account-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.banner-trial   { background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.35); }
+.banner-active  { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.30); }
+.banner-suspended { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.30); }
+
+.banner-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.banner-trial .banner-left   { color: #f59e0b; }
+.banner-active .banner-left  { color: var(--accent-green, #10b981); }
+.banner-suspended .banner-left { color: var(--danger, #ef4444); }
+
+.banner-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.banner-desc {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.trial-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  min-width: 180px;
+}
+.trial-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(245,158,11,0.2);
+  overflow: hidden;
+}
+.trial-progress-fill {
+  height: 100%;
+  background: #f59e0b;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+.trial-remaining {
+  font-size: 11px;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* ── Wompi Widget Button ─────────────────────────────────── */
+.wompi-widget-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.btn-wompi-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  /* Wompi brand gradient: deep green → teal */
+  background: linear-gradient(135deg, #00b783 0%, #00854d 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.18s, transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 14px rgba(0,183,131,0.35);
+  letter-spacing: 0.01em;
+}
+.btn-wompi-widget:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,183,131,0.45);
+}
+.btn-wompi-widget:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.wompi-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+.wompi-hint strong { color: var(--text); }
+
+/* ── Form Actions ────────────────────────────────────────── */
+/* ── Top Stats ───────────────────────────────────────────── */
+.billing-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.bstat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: var(--card-bg, rgba(255,255,255,0.03));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.bstat-card:hover {
+  border-color: var(--accent-blue, #6366f1);
+  transform: translateY(-2px);
+}
+
+.bstat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bstat-icon.green  { background: rgba(16,185,129,0.15); color: #10b981; }
+.bstat-icon.purple { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+.bstat-icon.blue   { background: rgba(99,102,241,0.15);  color: #6366f1; }
+.bstat-icon.amber  { background: rgba(245,158,11,0.15);  color: #f59e0b; }
+
+.bstat-info {
+  display: flex;
+  flex-direction: column;
+}
+.bstat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.bstat-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.billing-card {
+  background: var(--card-bg, rgba(255,255,255,0.03));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: opacity 0.2s ease;
+}
+
+/* Subtle dim while filter data is loading — avoids full-page flicker */
+.billing-card.filter-loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── Chart Controls ──────────────────────────────────────── */
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.select-control {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface, rgba(255,255,255,0.04));
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.18s;
+}
+.select-control:focus { border-color: var(--accent-blue, #6366f1); }
+
+.groupby-tabs {
+  display: flex;
+  gap: 2px;
+  background: var(--surface, rgba(255,255,255,0.05));
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.groupby-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.groupby-btn.active {
+  background: var(--accent-blue, #6366f1);
+  color: white;
+}
+.groupby-btn:not(.active):hover {
+  background: var(--surface-hover, rgba(255,255,255,0.07));
+  color: var(--text);
+}
+
+/* ── Chart Bars ──────────────────────────────────────────── */
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 140px;
+  padding: 0 4px;
+  overflow-x: auto;
+}
+
+.chart-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 30px;
+}
+
+.chart-bar-value {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.chart-bar-track {
+  width: 100%;
+  height: 100px;
+  background: var(--surface, rgba(255,255,255,0.05));
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease;
+  min-height: 4px;
+}
+
+.chart-bar-label {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.chart-footer {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.chart-empty-icon {
+  opacity: 0.25;
+}
+
+/* ── Invoices ────────────────────────────────────────────── */
+.invoices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.invoice-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface, rgba(255,255,255,0.04));
+  border: 1px solid transparent;
+  transition: border-color 0.18s;
+}
+.invoice-row:hover { border-color: var(--border); }
+
+.invoice-period {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 150px;
+}
+
+.invoice-amount {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+}
+.invoice-usd {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.invoice-cop {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.invoice-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.invoice-date {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.invoices-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.invoices-empty span { font-size: 12px; }
+
+/* ── Payment Methods ─────────────────────────────────────── */
+.btn-add-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-blue, #6366f1);
+  background: transparent;
+  color: var(--accent-blue, #6366f1);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-add-card:hover { background: rgba(99,102,241,0.1); }
+
+.payment-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+.payment-empty span { font-size: 12px; max-width: 340px; }
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface, rgba(255,255,255,0.04));
+  border: 1px solid var(--border);
+}
+
+.card-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.card-brand {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.card-number {
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.badge-active {
+  padding: 2px 8px;
+  background: rgba(16,185,129,0.12);
+  color: #10b981;
+  border-radius: 99px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.btn-delete-card {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.18s, background 0.18s;
+  display: flex;
+  align-items: center;
+}
+.btn-delete-card:hover {
+  color: var(--danger, #ef4444);
+  background: rgba(239,68,68,0.08);
+}
+
+/* ── Add Card Form ───────────────────────────────────────── */
+.add-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--surface, rgba(255,255,255,0.04));
+  border: 1px solid var(--border);
+}
+
+.form-info {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--danger, #ef4444);
+  background: rgba(239,68,68,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.form-row { display: flex; flex-direction: column; gap: 6px; }
+.form-row.two-cols { flex-direction: row; gap: 12px; }
+.form-row.two-cols .form-group { flex: 1; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg, rgba(255,255,255,0.04));
+  color: var(--text);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.18s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus { border-color: var(--accent-blue, #6366f1); }
+
+/* Wrap del número de tarjeta con badge de franquicia */
+.card-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.card-input-wrap input { padding-right: 80px; }
+
+.card-brand-badge {
+  position: absolute;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--accent-blue, #6366f1);
+  color: white;
+  pointer-events: none;
+  user-select: none;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-cancel:hover {
+  background: var(--surface-hover, rgba(255,255,255,0.06));
+  color: var(--text);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .billing-header { padding: 14px 16px; }
+  .billing-main   { padding: 16px 12px 40px; }
+  .billing-stats  { grid-template-columns: 1fr 1fr; }
+  .invoice-row    { flex-wrap: wrap; gap: 10px; }
+  .invoice-date   { display: none; }
+  .form-row.two-cols { flex-direction: column; }
+  .trial-progress-wrap { min-width: 140px; }
+}
+
+/* ── Light theme overrides ───────────────────────────────── */
+[data-theme="light"] .billing-container { background: #f8f9fc; }
+[data-theme="light"] .billing-header    { background: rgba(255,255,255,0.85); }
+[data-theme="light"] .billing-card      { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .bstat-card        { background: #ffffff; border-color: #e5e7eb; }
+[data-theme="light"] .account-banner    { border-color: #d1d5db; }
+[data-theme="light"] .chart-bar-track   { background: #f1f5f9; }
+[data-theme="light"] .groupby-tabs      { background: #f1f5f9; }
+[data-theme="light"] .select-control    { background: #ffffff; border-color: #d1d5db; color: #111; }
+[data-theme="light"] .card-item         { background: #f9fafb; border-color: #e5e7eb; }
+[data-theme="light"] .add-card-form     { background: #f9fafb; border-color: #e5e7eb; }
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select { background: #ffffff; border-color: #d1d5db; color: #111; }
+[data-theme="light"] .invoice-row       { background: #f9fafb; }

@@ -1,0 +1,65 @@
+{
+  "header": {
+    "themeToggle": "Cambiar tema"
+  },
+  "loading": "Cargando datos de facturación…",
+  "retry": "Reintentar",
+  "accountBanner": {
+    "suspendedTitle": "Cuenta Suspendida",
+    "trialTitle": "Período de Prueba Gratuita",
+    "activeTitle": "Cuenta Activa",
+    "suspendedDesc": "Tu cuenta ha sido suspendida. Contacta soporte para reactivarla.",
+    "trialDesc": "Has usado {{used}} de {{limit}} USD de crédito gratuito.",
+    "activeDesc": "Tus extracciones se facturan mensualmente al método de pago registrado.",
+    "remaining": "{{amount}} restantes"
+  },
+  "stats": {
+    "monthSpend": "Gasto del mes",
+    "documentsExtracted": "Documentos extraídos",
+    "paymentMethod": "Método de pago",
+    "noCard": "Sin tarjeta",
+    "paidInvoices": "Facturas pagadas"
+  },
+  "chart": {
+    "title": "Consumo por período",
+    "day": "Día",
+    "week": "Semana",
+    "month": "Mes",
+    "empty": "Sin actividad en este período",
+    "weekLabelPrefix": "Sem {{date}}",
+    "documents": "documentos"
+  },
+  "invoiceStatus": {
+    "draft": "Borrador",
+    "pending": "Pendiente",
+    "paid": "Pagada",
+    "failed": "Fallida"
+  },
+  "invoices": {
+    "title": "Historial de Facturas",
+    "emptyTitle": "Aún no tienes facturas generadas.",
+    "emptyHint": "Las facturas se generan el día 1 de cada mes."
+  },
+  "paymentMethods": {
+    "title": "Métodos de Pago",
+    "emptyTitle": "No tienes métodos de pago registrados.",
+    "emptyHint": "Agrega una tarjeta para continuar usando Kortex una vez agotes tu crédito de prueba.",
+    "primary": "Principal",
+    "deleteTitle": "Eliminar método de pago",
+    "confirmDelete": "¿Eliminar este método de pago?",
+    "deleteFailed": "No se pudo eliminar el método de pago."
+  },
+  "wompi": {
+    "opening": "Abriendo Wompi…",
+    "addCard": "Agregar tarjeta con Wompi",
+    "hintPrefix": "🔒 Se realizará un cobro de verificación de",
+    "hintSuffix": "a través del checkout oficial de Wompi. Tu tarjeta quedará registrada para los cobros mensuales."
+  },
+  "errors": {
+    "loadFailed": "Error al cargar los datos de billing. Intenta de nuevo.",
+    "periodLoadFailed": "Error al cargar el consumo del período.",
+    "widgetLoadFailed": "El widget de Wompi no pudo cargarse. Verifica tu conexión a internet.",
+    "saveCardFailed": "Error guardando la tarjeta.",
+    "openWidgetFailed": "Error abriendo el widget de Wompi."
+  }
+}

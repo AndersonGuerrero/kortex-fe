@@ -1,0 +1,64 @@
+{
+  "loading": {
+    "studio": "Cargando Kortex Studio Pro...",
+    "document": "Cargando documento...",
+    "pdf": "Cargando archivo PDF...",
+    "withPassword": "Cargando con contraseña..."
+  },
+  "status": {
+    "documentName": "Documento: {{name}}",
+    "metadataError": "Error al cargar metadatos.",
+    "passwordError": "Error al cargar PDF (Falta contraseña)",
+    "passwordCancelled": "❌ Carga cancelada (Protegido por contraseña)",
+    "pdfError": "❌ Error al cargar PDF: {{message}}",
+    "savingAnnotations": "Guardando anotaciones...",
+    "saveError": "Error al guardar anotaciones."
+  },
+  "prompts": {
+    "passwordPrompt": "🔐 Este PDF está protegido con contraseña. Por favor, ingrésala:"
+  },
+  "toasts": {
+    "wrongPassword": "Contraseña incorrecta o error de carga: {{message}}",
+    "allBoxesDeleted": "Se han eliminado todos los recuadros.",
+    "mustConfigureLabel": "Debes configurar al menos una etiqueta en el tipo de documento antes de dibujar.",
+    "selectLabelFirst": "Selecciona una etiqueta en la barra lateral antes de dibujar.",
+    "jsonMustBeArray": "El JSON debe ser una lista de recuadros.",
+    "jsonApplied": "Cambios de JSON aplicados en el visor.",
+    "jsonFormatError": "Error en el formato de JSON: {{message}}",
+    "jsonProcessError": "Error al procesar el JSON.",
+    "saveSuccess": "¡Etiquetado guardado correctamente en la base de datos!",
+    "jsonSyntaxError": "El JSON actual tiene errores de sintaxis y no se pudo guardar.",
+    "saveFailed": "Error al intentar guardar las anotaciones."
+  },
+  "confirmModal": {
+    "resetTitle": "⚠️ Confirmar Acción",
+    "resetMessage": "¿Seguro que deseas eliminar todos los recuadros dibujados? Esta acción no se puede deshacer.",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  },
+  "sidebar": {
+    "filterTitle": "🔍 Filtro de Etiquetas",
+    "searchPlaceholder": "Escribe para buscar...",
+    "classesTitle": "🏷️ Clases ({{count}})",
+    "noLabelsConfigured": "No hay etiquetas configuradas.",
+    "configureLabels": "Configurar Etiquetas",
+    "hotkeyTip": "Tip: Usa las teclas 1-9 para alternar entre clases rápidamente."
+  },
+  "topbar": {
+    "backTitle": "Regresar al tipo de documento",
+    "pageIndicator": "Pág {{page}} de {{total}}",
+    "clearAll": "Limpiar Todo",
+    "saveChanges": "Guardar Cambios"
+  },
+  "viewer": {
+    "initializing": "Iniciando visor del documento..."
+  },
+  "console": {
+    "title": "🤖 DATASET NER (INCLUYE CLAVE \"PAGINA\")",
+    "applyChanges": "Aplicar Cambios"
+  },
+  "defaults": {
+    "labelName": "Etiqueta",
+    "fileName": "documento.pdf"
+  }
+}

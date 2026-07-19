@@ -1,0 +1,44 @@
+{
+  "loading": {
+    "document": "Loading document for editing...",
+    "pdf": "Loading PDF for editing..."
+  },
+  "errors": {
+    "pdfJsNotLoaded": "PDF.js is not loaded. You may need to refresh the page.",
+    "loadFailed": "Error loading the document",
+    "saveFailed": "Error saving the PDF: {{error}}"
+  },
+  "errorScreen": {
+    "backButton": "← Back"
+  },
+  "header": {
+    "backTitle": "Back to document type",
+    "title": "✏️ PDF Editor",
+    "undo": "Undo",
+    "redo": "Redo",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "downloadTitle": "Download local copy",
+    "downloadProcessing": "Processing...",
+    "download": "Download",
+    "saveTitle": "Save edited PDF to the server",
+    "saving": "Saving...",
+    "saved": "✓ Saved",
+    "save": "Save"
+  },
+  "sidebar": {
+    "embeddedImagesTitle": "PDF Images ({{count}})",
+    "embeddedAlt": "Embedded {{index}}",
+    "deletedLabel": "🗑️ Deleted",
+    "imageLabel": "Image {{index}}",
+    "restore": "Restore",
+    "delete": "Delete",
+    "deletedCount": "{{count}} deleted",
+    "addImage": "🖼️ Add Image / Signature"
+  },
+  "canvas": {
+    "moveLabel": "⠿ Move",
+    "deleteImage": "Delete image",
+    "resize": "Resize"
+  }
+}

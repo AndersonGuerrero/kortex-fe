@@ -1,0 +1,24 @@
+{
+  "header": {
+    "subtitle": "Inicia sesión en la plataforma de extracción"
+  },
+  "errors": {
+    "fieldsRequired": "Por favor completa todos los campos.",
+    "unexpected": "Ocurrió un error inesperado. Inténtalo de nuevo."
+  },
+  "google": {
+    "continueWith": "Continuar con Google"
+  },
+  "divider": {
+    "or": "o"
+  },
+  "form": {
+    "usernameLabel": "Usuario",
+    "usernamePlaceholder": "Nombre de usuario",
+    "passwordLabel": "Contraseña",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "signingIn": "Iniciando sesión...",
+    "submit": "Ingresar"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "loading": {
+    "document": "Cargando documento para edición...",
+    "pdf": "Cargando PDF para edición..."
+  },
+  "errors": {
+    "pdfJsNotLoaded": "PDF.js no está cargado. Puede requerir refrescar la página.",
+    "loadFailed": "Error al cargar el documento",
+    "saveFailed": "Error al guardar el PDF: {{error}}"
+  },
+  "errorScreen": {
+    "backButton": "← Volver"
+  },
+  "header": {
+    "backTitle": "Volver al tipo de documento",
+    "title": "✏️ Editor PDF",
+    "undo": "Deshacer",
+    "redo": "Rehacer",
+    "prevPage": "Página anterior",
+    "nextPage": "Página siguiente",
+    "downloadTitle": "Descargar copia local",
+    "downloadProcessing": "Procesando...",
+    "download": "Descargar",
+    "saveTitle": "Guardar PDF editado en el servidor",
+    "saving": "Guardando...",
+    "saved": "✓ Guardado",
+    "save": "Guardar"
+  },
+  "sidebar": {
+    "embeddedImagesTitle": "Imágenes del PDF ({{count}})",
+    "embeddedAlt": "Embebida {{index}}",
+    "deletedLabel": "🗑️ Eliminada",
+    "imageLabel": "Imagen {{index}}",
+    "restore": "Restaurar",
+    "delete": "Eliminar",
+    "deletedCount": "{{count}} eliminada(s)",
+    "addImage": "🖼️ Añadir Imagen / Firma"
+  },
+  "canvas": {
+    "moveLabel": "⠿ Mover",
+    "deleteImage": "Eliminar imagen",
+    "resize": "Redimensionar"
+  }
+}

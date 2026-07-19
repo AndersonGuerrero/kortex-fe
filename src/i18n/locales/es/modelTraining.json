@@ -1,0 +1,65 @@
+{
+  "loading": "Cargando Kortex Studio...",
+  "header": {
+    "back": "Regresar",
+    "themeToLight": "Cambiar a modo claro",
+    "themeToDark": "Cambiar a modo oscuro"
+  },
+  "tabs": {
+    "ai": "IA & Modelado",
+    "account": "Cuenta"
+  },
+  "stats": {
+    "title": "Estado & Entrenamiento",
+    "classes": "Clases",
+    "labels": "Etiquetas",
+    "accuracy": "Precisión",
+    "optimizingWeights": "Optimizando Pesos...",
+    "configuringPrompt": "Configurando Prompt del LLM...",
+    "cancelProcess": "Cancelar Proceso",
+    "compiling": "Compilando...",
+    "startTraining": "Iniciar Entrenamiento Maestro"
+  },
+  "testing": {
+    "title": "Prueba de Inferencia",
+    "referenceClass": "Clase de Referencia",
+    "selectPlaceholder": "Seleccionar...",
+    "pdfDocument": "Documento PDF",
+    "dragPdfHere": "Arrastra un PDF aquí",
+    "processing": "Procesando...",
+    "runExtraction": "Ejecutar Extracción",
+    "resultsHeader": "RESULTADOS DE EXTRACCIÓN",
+    "waitingForInput": "Esperando datos de entrada..."
+  },
+  "logs": {
+    "systemReady": "[INFO] [{{time}}] Sistema de IA listo.",
+    "waitingForTraining": "[STATUS] Esperando inicio de entrenamiento o configuración.",
+    "trainingInitializing": "[INFO] [{{time}}] Inicializando proceso de entrenamiento global..."
+  },
+  "profile": {
+    "title": "Perfil de Usuario",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "newPassword": "Nueva Contraseña",
+    "optionalPlaceholder": "Opcional...",
+    "saving": "Guardando...",
+    "updateProfile": "Actualizar Perfil",
+    "updateSuccess": "¡Perfil de usuario actualizado exitosamente!"
+  },
+  "api": {
+    "description": "Gestiona tus credenciales para integraciones externas.",
+    "active": "Activo",
+    "status": "Estado",
+    "generating": "Generando...",
+    "generateToken": "Generar Token de Producción",
+    "implementation": "Implementación"
+  },
+  "errors": {
+    "startTrainingFailed": "Error al iniciar el entrenamiento.",
+    "cancelTrainingFailed": "Error al detener el entrenamiento.",
+    "confirmCancelTraining": "¿Estás seguro de que deseas detener el entrenamiento?",
+    "updateProfileFailed": "Error al intentar actualizar los datos.",
+    "generateTokenFailed": "Error al generar el token API.",
+    "testExtractionFailed": "Error al ejecutar la prueba."
+  }
+}

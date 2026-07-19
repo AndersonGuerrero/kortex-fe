@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Degradado de fondo violeta-índigo-azul -->
+    <linearGradient id="kortexBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <!-- Degradado blanco translúcido para el símbolo -->
+    <linearGradient id="symbolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <!-- Caja contenedora redondeada -->
+  <rect width="100" height="100" rx="26" fill="url(#kortexBgGrad)"/>
+  <!-- Línea vertical izquierda (Eje de datos) -->
+  <path d="M36 28V72" stroke="url(#symbolGrad)" stroke-width="6.5" stroke-linecap="round"/>
+  <!-- Vector superior derecho -->
+  <path d="M36 50L58 28" stroke="url(#symbolGrad)" stroke-width="6.5" stroke-linecap="round"/>
+  <!-- Vector inferior derecho -->
+  <path d="M45 41L61 72" stroke="url(#symbolGrad)" stroke-width="6.5" stroke-linecap="round"/>
+  <!-- Nodos de control -->
+  <circle cx="58" cy="28" r="4" fill="#ffffff"/>
+  <circle cx="61" cy="72" r="4" fill="#ffffff"/>
+  <circle cx="36" cy="50" r="3" fill="#ffffff"/>
+</svg>

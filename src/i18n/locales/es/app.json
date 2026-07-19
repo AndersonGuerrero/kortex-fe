@@ -1,0 +1,46 @@
+{
+  "header": {
+    "badge": "Motor de Extracción",
+    "billingTitle": "Gastos y Facturación",
+    "billingLabel": "Gastos",
+    "themeToLight": "Cambiar a modo claro",
+    "themeToDark": "Cambiar a modo oscuro",
+    "logoutTitle": "Cerrar sesión",
+    "logoutLabel": "Cerrar Sesión"
+  },
+  "welcome": {
+    "title": "¡Bienvenido al Panel de Extracción!",
+    "subtitle": "Crea tipos de documento y gestiona tus ejemplos para entrenar y extraer campos estructurados mediante inteligencia artificial.",
+    "createDocumentType": "Crear Tipo de Documento"
+  },
+  "stats": {
+    "documentTypes": "Tipos de Documento",
+    "activeModel": "Modelo Activo",
+    "unassigned": "Sin asignar",
+    "extractionAccuracy": "Precisión de Extracción",
+    "activeService": "Servicio Activo"
+  },
+  "projects": {
+    "title": "Tus Tipos de Documento",
+    "newDocumentType": "Nuevo Tipo de Documento",
+    "loading": "Cargando tipos de documento...",
+    "retry": "Reintentar",
+    "emptyState": "No tienes ningún tipo de documento creado.",
+    "createFirst": "Crear tu primer tipo de documento",
+    "createdOn": "Creado el {{date}}",
+    "viewDetails": "Ver detalles"
+  },
+  "modal": {
+    "title": "Crear Nuevo Tipo de Documento",
+    "nameLabel": "Nombre del Tipo de Documento",
+    "namePlaceholder": "Ej. Factura, Contrato, Cuenta de Cobro",
+    "cancel": "Cancelar",
+    "creating": "Creando...",
+    "create": "Crear Tipo de Documento"
+  },
+  "errors": {
+    "loadDashboard": "Error al cargar el dashboard.",
+    "nameRequired": "El nombre del tipo de documento es obligatorio.",
+    "createFailed": "No se pudo crear el tipo de documento. Reinténtalo."
+  }
+}

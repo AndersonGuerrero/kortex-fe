@@ -1,0 +1,64 @@
+{
+  "loading": {
+    "studio": "Loading Kortex Studio Pro...",
+    "document": "Loading document...",
+    "pdf": "Loading PDF file...",
+    "withPassword": "Loading with password..."
+  },
+  "status": {
+    "documentName": "Document: {{name}}",
+    "metadataError": "Error loading metadata.",
+    "passwordError": "Error loading PDF (missing password)",
+    "passwordCancelled": "❌ Load cancelled (password protected)",
+    "pdfError": "❌ Error loading PDF: {{message}}",
+    "savingAnnotations": "Saving annotations...",
+    "saveError": "Error saving annotations."
+  },
+  "prompts": {
+    "passwordPrompt": "🔐 This PDF is password protected. Please enter it:"
+  },
+  "toasts": {
+    "wrongPassword": "Incorrect password or load error: {{message}}",
+    "allBoxesDeleted": "All boxes have been deleted.",
+    "mustConfigureLabel": "You must configure at least one label in the document type before drawing.",
+    "selectLabelFirst": "Select a label in the sidebar before drawing.",
+    "jsonMustBeArray": "The JSON must be a list of boxes.",
+    "jsonApplied": "JSON changes applied to the viewer.",
+    "jsonFormatError": "Error in JSON format: {{message}}",
+    "jsonProcessError": "Error processing the JSON.",
+    "saveSuccess": "Labeling saved successfully to the database!",
+    "jsonSyntaxError": "The current JSON has syntax errors and could not be saved.",
+    "saveFailed": "Error trying to save the annotations."
+  },
+  "confirmModal": {
+    "resetTitle": "⚠️ Confirm Action",
+    "resetMessage": "Are you sure you want to delete all drawn boxes? This action cannot be undone.",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "sidebar": {
+    "filterTitle": "🔍 Label Filter",
+    "searchPlaceholder": "Type to search...",
+    "classesTitle": "🏷️ Classes ({{count}})",
+    "noLabelsConfigured": "No labels configured.",
+    "configureLabels": "Configure Labels",
+    "hotkeyTip": "Tip: Use keys 1-9 to quickly switch between classes."
+  },
+  "topbar": {
+    "backTitle": "Return to document type",
+    "pageIndicator": "Page {{page}} of {{total}}",
+    "clearAll": "Clear All",
+    "saveChanges": "Save Changes"
+  },
+  "viewer": {
+    "initializing": "Starting document viewer..."
+  },
+  "console": {
+    "title": "🤖 NER DATASET (INCLUDES \"PAGE\" KEY)",
+    "applyChanges": "Apply Changes"
+  },
+  "defaults": {
+    "labelName": "Label",
+    "fileName": "document.pdf"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "loading": "Loading Kortex Studio...",
+  "header": {
+    "back": "Back",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode"
+  },
+  "tabs": {
+    "ai": "AI & Modeling",
+    "account": "Account"
+  },
+  "stats": {
+    "title": "Status & Training",
+    "classes": "Classes",
+    "labels": "Labels",
+    "accuracy": "Accuracy",
+    "optimizingWeights": "Optimizing Weights...",
+    "configuringPrompt": "Configuring LLM Prompt...",
+    "cancelProcess": "Cancel Process",
+    "compiling": "Compiling...",
+    "startTraining": "Start Master Training"
+  },
+  "testing": {
+    "title": "Inference Test",
+    "referenceClass": "Reference Class",
+    "selectPlaceholder": "Select...",
+    "pdfDocument": "PDF Document",
+    "dragPdfHere": "Drag a PDF here",
+    "processing": "Processing...",
+    "runExtraction": "Run Extraction",
+    "resultsHeader": "EXTRACTION RESULTS",
+    "waitingForInput": "Waiting for input data..."
+  },
+  "logs": {
+    "systemReady": "[INFO] [{{time}}] AI system ready.",
+    "waitingForTraining": "[STATUS] Waiting for training to start or configuration.",
+    "trainingInitializing": "[INFO] [{{time}}] Initializing global training process..."
+  },
+  "profile": {
+    "title": "User Profile",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "newPassword": "New Password",
+    "optionalPlaceholder": "Optional...",
+    "saving": "Saving...",
+    "updateProfile": "Update Profile",
+    "updateSuccess": "User profile updated successfully!"
+  },
+  "api": {
+    "description": "Manage your credentials for external integrations.",
+    "active": "Active",
+    "status": "Status",
+    "generating": "Generating...",
+    "generateToken": "Generate Production Token",
+    "implementation": "Implementation"
+  },
+  "errors": {
+    "startTrainingFailed": "Error starting training.",
+    "cancelTrainingFailed": "Error stopping training.",
+    "confirmCancelTraining": "Are you sure you want to stop training?",
+    "updateProfileFailed": "Error trying to update the data.",
+    "generateTokenFailed": "Error generating the API token.",
+    "testExtractionFailed": "Error running the test."
+  }
+}

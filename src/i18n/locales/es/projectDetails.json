@@ -1,0 +1,88 @@
+{
+  "loading": "Cargando tipo de documento...",
+  "header": {
+    "backTitle": "Regresar al panel",
+    "detailsBadge": "Detalles",
+    "themeToLight": "Cambiar a modo claro",
+    "themeToDark": "Cambiar a modo oscuro",
+    "editName": "Editar Nombre",
+    "deleteDocumentType": "Eliminar Tipo de Documento"
+  },
+  "uploadPanel": {
+    "title": "Cargar Ejemplo (PDF)",
+    "description": "Sube archivos PDF de ejemplo para entrenar el extractor inteligente.",
+    "analyzing": "Analizando documento con IA...",
+    "analyzingHint": "Esto puede tardar unos segundos (OCR estructural)",
+    "clickToUpload": "Haz clic para buscar",
+    "onlyPdf": "Solo archivos PDF de ejemplo"
+  },
+  "labelsSection": {
+    "title": "Etiquetas de Campos ({{count}})",
+    "description": "Define las etiquetas de campos a extraer de este tipo de documento (ej. fecha, total, nit).",
+    "namePlaceholder": "Nombre del campo (ej. fecha_emision)...",
+    "empty": "Sin etiquetas en este tipo de documento.",
+    "editTitle": "Editar",
+    "deleteTitle": "Eliminar"
+  },
+  "modelSection": {
+    "title": "🧠 IA y Extracción",
+    "description": "Accede a la configuración avanzada e inicia el entrenamiento del extractor inteligente global.",
+    "cta": "Configurar y Entrenar IA"
+  },
+  "documentsPanel": {
+    "title": "Ejemplos de Entrenamiento ({{count}})",
+    "empty": "Aún no se han cargado ejemplos para entrenar en este tipo de documento.",
+    "uploadedOn": "Cargado el {{date}}",
+    "defaultFileName": "documento.pdf",
+    "status": {
+      "uploaded": "⏳ Por etiquetar",
+      "labeled": "🏷️ Etiquetado",
+      "trained": "🤖 Entrenado"
+    },
+    "actions": {
+      "tag": "Etiquetar",
+      "edit": "Editar",
+      "editTitle": "Editar PDF",
+      "view": "Ver PDF",
+      "deleteTitle": "Eliminar"
+    }
+  },
+  "editTypeModal": {
+    "title": "Editar Nombre de Tipo de Documento",
+    "nameLabel": "Nombre del Tipo de Documento",
+    "cancel": "Cancelar",
+    "save": "Guardar Cambios"
+  },
+  "editLabelModal": {
+    "title": "Editar Etiqueta",
+    "nameLabel": "Nombre de la Etiqueta",
+    "typeLabel": "Tipo de Dato",
+    "cancel": "Cancelar",
+    "save": "Guardar Etiqueta"
+  },
+  "confirmModal": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "deleteDocumentType": {
+      "title": "🗑️ Eliminar Tipo de Documento",
+      "message": "¿Estás seguro de que deseas eliminar este tipo de documento? Se borrarán todos los ejemplos de entrenamiento y etiquetas asociadas permanentemente."
+    },
+    "deleteDocument": {
+      "title": "🗑️ Eliminar Ejemplo de Entrenamiento",
+      "message": "¿Deseas eliminar este ejemplo de entrenamiento permanentemente?"
+    },
+    "deleteLabel": {
+      "title": "🗑️ Eliminar Etiqueta",
+      "message": "¿Seguro que deseas eliminar esta etiqueta del tipo de documento?"
+    }
+  },
+  "errors": {
+    "updateTypeFailed": "No se pudo actualizar el nombre del tipo de documento.",
+    "deleteTypeFailed": "Error al intentar eliminar el tipo de documento.",
+    "uploadFailed": "Error al subir el archivo PDF.",
+    "deleteDocumentFailed": "No se pudo eliminar el ejemplo de entrenamiento.",
+    "createLabelFailed": "No se pudo crear la etiqueta.",
+    "updateLabelFailed": "No se pudo renombrar la etiqueta.",
+    "deleteLabelFailed": "No se pudo eliminar la etiqueta."
+  }
+}

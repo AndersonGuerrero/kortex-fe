@@ -1,0 +1,88 @@
+{
+  "loading": "Loading document type...",
+  "header": {
+    "backTitle": "Back to dashboard",
+    "detailsBadge": "Details",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode",
+    "editName": "Edit Name",
+    "deleteDocumentType": "Delete Document Type"
+  },
+  "uploadPanel": {
+    "title": "Upload Example (PDF)",
+    "description": "Upload sample PDF files to train the intelligent extractor.",
+    "analyzing": "Analyzing document with AI...",
+    "analyzingHint": "This may take a few seconds (structural OCR)",
+    "clickToUpload": "Click to browse",
+    "onlyPdf": "PDF sample files only"
+  },
+  "labelsSection": {
+    "title": "Field Labels ({{count}})",
+    "description": "Define the field labels to extract from this document type (e.g. date, total, tax ID).",
+    "namePlaceholder": "Field name (e.g. issue_date)...",
+    "empty": "No labels in this document type yet.",
+    "editTitle": "Edit",
+    "deleteTitle": "Delete"
+  },
+  "modelSection": {
+    "title": "🧠 AI & Extraction",
+    "description": "Access advanced settings and start training the global intelligent extractor.",
+    "cta": "Configure and Train AI"
+  },
+  "documentsPanel": {
+    "title": "Training Examples ({{count}})",
+    "empty": "No examples have been uploaded yet to train this document type.",
+    "uploadedOn": "Uploaded on {{date}}",
+    "defaultFileName": "document.pdf",
+    "status": {
+      "uploaded": "⏳ Needs labeling",
+      "labeled": "🏷️ Labeled",
+      "trained": "🤖 Trained"
+    },
+    "actions": {
+      "tag": "Label",
+      "edit": "Edit",
+      "editTitle": "Edit PDF",
+      "view": "View PDF",
+      "deleteTitle": "Delete"
+    }
+  },
+  "editTypeModal": {
+    "title": "Edit Document Type Name",
+    "nameLabel": "Document Type Name",
+    "cancel": "Cancel",
+    "save": "Save Changes"
+  },
+  "editLabelModal": {
+    "title": "Edit Label",
+    "nameLabel": "Label Name",
+    "typeLabel": "Data Type",
+    "cancel": "Cancel",
+    "save": "Save Label"
+  },
+  "confirmModal": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "deleteDocumentType": {
+      "title": "🗑️ Delete Document Type",
+      "message": "Are you sure you want to delete this document type? All associated training examples and labels will be permanently deleted."
+    },
+    "deleteDocument": {
+      "title": "🗑️ Delete Training Example",
+      "message": "Do you want to permanently delete this training example?"
+    },
+    "deleteLabel": {
+      "title": "🗑️ Delete Label",
+      "message": "Are you sure you want to delete this label from the document type?"
+    }
+  },
+  "errors": {
+    "updateTypeFailed": "Could not update the document type name.",
+    "deleteTypeFailed": "Error trying to delete the document type.",
+    "uploadFailed": "Error uploading the PDF file.",
+    "deleteDocumentFailed": "Could not delete the training example.",
+    "createLabelFailed": "Could not create the label.",
+    "updateLabelFailed": "Could not rename the label.",
+    "deleteLabelFailed": "Could not delete the label."
+  }
+}
