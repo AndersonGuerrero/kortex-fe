@@ -514,10 +514,9 @@ export const apiService = {
    * Descarga los bytes del PDF de un documento para renderizar en el editor.
    */
   async getDocumentPdfBytes(pdfUrl: string): Promise<ArrayBuffer> {
-    // Cache-busting para evitar servir PDFs cacheados tras reemplazar
-    const separator = pdfUrl.includes('?') ? '&' : '?';
-    const bustUrl = `${pdfUrl}${separator}_t=${Date.now()}`;
-    const response = await this.fetchWithAuth(bustUrl);
+    // En producción pdfUrl es una URL firmada de R2: no lleva el JWT de la
+    // API ni parámetros extra, que invalidarían la firma.
+    const response = await fetch(pdfUrl);
     if (!response.ok) {
       throw new Error(i18n.t('errors.downloadPdfFailed', { ns: 'api' }));
     }
