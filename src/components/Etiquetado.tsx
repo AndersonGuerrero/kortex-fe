@@ -187,10 +187,10 @@ export const Etiquetado: React.FC = () => {
         }
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
 
-        // Load PDF (cache-busting para cargar versión más reciente tras edición)
+        // En producción doc.pdf es una URL firmada de R2: agregarle parámetros
+        // invalida la firma.
         setStatusText(t('loading.pdf'));
-        const pdfUrlCacheBust = `${doc.pdf}${doc.pdf.includes('?') ? '&' : '?'}_t=${Date.now()}`;
-        const loadingTask = pdfjsLib.getDocument({ url: pdfUrlCacheBust });
+        const loadingTask = pdfjsLib.getDocument({ url: doc.pdf });
         
         loadingTask.promise.then((pdf: any) => {
           if (!isMounted) return;
