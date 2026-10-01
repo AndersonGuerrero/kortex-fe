@@ -5,7 +5,7 @@
     "detailsBadge": "Details",
     "themeToLight": "Switch to light mode",
     "themeToDark": "Switch to dark mode",
-    "editName": "Edit Name",
+    "editName": "Edit",
     "deleteDocumentType": "Delete Document Type"
   },
   "uploadPanel": {
@@ -48,10 +48,12 @@
     }
   },
   "editTypeModal": {
-    "title": "Edit Document Type Name",
+    "title": "Edit Document Type",
     "nameLabel": "Document Type Name",
     "cancel": "Cancel",
-    "save": "Save Changes"
+    "save": "Save Changes",
+    "groupLabel": "Group",
+    "noGroup": "No group"
   },
   "editLabelModal": {
     "title": "Edit Label",

@@ -10,9 +10,16 @@ interface TokenResponse {
   refresh: string;
 }
 
+export interface DocumentGroup {
+  id: number;
+  name: string;
+  created_at: string;
+}
+
 export interface DocumentType {
   id: number;
   name: string;
+  group: number | null;
   created_at: string;
 }
 
@@ -334,19 +341,27 @@ export const apiService = {
   },
 
   /**
-   * Actualiza el nombre del tipo de documento.
+   * Actualiza el nombre y/o el grupo del tipo de documento (`group: null` lo deja sin grupo).
    */
-  async updateDocumentType(id: number, name: string): Promise<DocumentType> {
+  async updateDocumentType(
+    id: number,
+    changes: { name?: string; group?: number | null },
+  ): Promise<DocumentType> {
     const response = await this.fetchWithAuth(`/api/document-types/${id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name }),
+      body: JSON.stringify(changes),
     });
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.detail || errorData.name?.[0] || i18n.t('errors.updateDocumentTypeFailed', { ns: 'api' }));
+      throw new Error(
+        errorData.detail ||
+          errorData.name?.[0] ||
+          errorData.group?.[0] ||
+          i18n.t('errors.updateDocumentTypeFailed', { ns: 'api' }),
+      );
     }
     return response.json();
   },
@@ -360,6 +375,56 @@ export const apiService = {
     });
     if (!response.ok) {
       throw new Error(i18n.t('errors.deleteDocumentTypeFailed', { ns: 'api' }));
+    }
+  },
+
+  async getDocumentGroups(): Promise<DocumentGroup[]> {
+    const response = await this.fetchWithAuth('/api/document-groups/');
+    if (!response.ok) {
+      throw new Error(i18n.t('errors.loadDocumentGroupsFailed', { ns: 'api' }));
+    }
+    return response.json();
+  },
+
+  async createDocumentGroup(name: string): Promise<DocumentGroup> {
+    const response = await this.fetchWithAuth('/api/document-groups/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name }),
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || errorData.name?.[0] || i18n.t('errors.createDocumentGroupFailed', { ns: 'api' }));
+    }
+    return response.json();
+  },
+
+  async updateDocumentGroup(id: number, name: string): Promise<DocumentGroup> {
+    const response = await this.fetchWithAuth(`/api/document-groups/${id}/`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name }),
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || errorData.name?.[0] || i18n.t('errors.updateDocumentGroupFailed', { ns: 'api' }));
+    }
+    return response.json();
+  },
+
+  /**
+   * Elimina un grupo; el backend deja sin grupo a sus tipos de documento.
+   */
+  async deleteDocumentGroup(id: number): Promise<void> {
+    const response = await this.fetchWithAuth(`/api/document-groups/${id}/`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error(i18n.t('errors.deleteDocumentGroupFailed', { ns: 'api' }));
     }
   },
 
@@ -678,10 +743,14 @@ export const apiService = {
 
   /**
    * Sube un documento PDF al endpoint /api/documents/extract/ para probar la extracción en vivo.
+   * Con `groupId`, el backend valida que el tipo pertenezca a ese grupo.
    */
-  async extractDocument(documentTypeId: number, pdfFile: File): Promise<any> {
+  async extractDocument(documentTypeId: number, pdfFile: File, groupId: number | null = null): Promise<any> {
     const formData = new FormData();
     formData.append('document_type', String(documentTypeId));
+    if (groupId !== null) {
+      formData.append('group', String(groupId));
+    }
     formData.append('pdf', pdfFile);
 
     const response = await this.fetchWithAuth('/api/documents/extract/', {

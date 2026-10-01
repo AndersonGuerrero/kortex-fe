@@ -42,5 +42,26 @@
     "loadDashboard": "Error loading the dashboard.",
     "nameRequired": "The document type name is required.",
     "createFailed": "Could not create the document type. Please try again."
+  },
+  "groups": {
+    "title": "Your Document Groups",
+    "new": "New Group",
+    "emptyState": "You have no groups. Group your document types so extraction can validate that the submitted type belongs to the group.",
+    "rename": "Rename group",
+    "delete": "Delete group",
+    "deleteConfirm": "Delete the group \"{{name}}\"? Its document types will be left without a group.",
+    "modal": {
+      "createTitle": "Create Document Group",
+      "renameTitle": "Rename Group",
+      "nameLabel": "Group name",
+      "namePlaceholder": "E.g. Accounting, Suppliers",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "errors": {
+      "nameRequired": "The group name is required.",
+      "saveFailed": "Could not save the group. Please try again.",
+      "deleteFailed": "Could not delete the group. Please try again."
+    }
   }
 }

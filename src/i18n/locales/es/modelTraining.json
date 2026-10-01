@@ -29,7 +29,9 @@
     "processing": "Procesando...",
     "runExtraction": "Ejecutar Extracción",
     "resultsHeader": "RESULTADOS DE EXTRACCIÓN",
-    "waitingForInput": "Esperando datos de entrada..."
+    "waitingForInput": "Esperando datos de entrada...",
+    "group": "Grupo (opcional)",
+    "noGroup": "Sin grupo (no validar)"
   },
   "logs": {
     "systemReady": "[INFO] [{{time}}] Sistema de IA listo.",

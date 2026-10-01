@@ -8,7 +8,7 @@ import {
   Sun, Moon, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { apiService } from '../services/api';
-import type { DocumentType, Document, Label, UserAIModel, UserProfile } from '../services/api';
+import type { DocumentGroup, DocumentType, Document, Label, UserAIModel, UserProfile } from '../services/api';
 import { LanguageToggle } from './LanguageToggle';
 import './ModelTraining.css';
 
@@ -65,6 +65,8 @@ export const ModelTraining: React.FC = () => {
 
   // Live PDF testing states
   const [selectedTestType, setSelectedTestType] = useState<number>(0);
+  const [selectedTestGroup, setSelectedTestGroup] = useState<number | null>(null);
+  const [documentGroups, setDocumentGroups] = useState<DocumentGroup[]>([]);
   const [testFile, setTestFile] = useState<File | null>(null);
   const [isTestingExtraction, setIsTestingExtraction] = useState(false);
   const [testExtractionResult, setTestExtractionResult] = useState<any | null>(null);
@@ -83,8 +85,12 @@ export const ModelTraining: React.FC = () => {
         console.error('Error al cargar perfil:', err);
       }
 
-      const documentTypesList = await apiService.getDocumentTypes();
+      const [documentTypesList, groupsList] = await Promise.all([
+        apiService.getDocumentTypes(),
+        apiService.getDocumentGroups(),
+      ]);
       setDocumentTypes(documentTypesList);
+      setDocumentGroups(groupsList);
       if (documentTypesList.length > 0) {
         setSelectedTestType(documentTypesList[0].id);
       }
@@ -281,7 +287,7 @@ export const ModelTraining: React.FC = () => {
     setTestExtractionResult(null);
 
     try {
-      const result = await apiService.extractDocument(selectedTestType, testFile);
+      const result = await apiService.extractDocument(selectedTestType, testFile, selectedTestGroup);
       setTestExtractionResult(result);
     } catch (err: any) {
       setTestError(err.message || t('errors.testExtractionFailed'));
@@ -300,8 +306,8 @@ export const ModelTraining: React.FC = () => {
   }
 
   const displayToken = apiToken || '<TU_TOKEN_API_JWT>';
-  const pythonCode = `import requests\n\nurl = "http://127.0.0.1:8000/api/documents/extract/"\nheaders = {"Authorization": "Bearer ${displayToken}"}\nfiles = {"pdf": open("documento.pdf", "rb")}\ndata = {"document_type": 1}\n\nresponse = requests.post(url, headers=headers, files=files, data=data)\nprint(response.json())`;
-  const jsCode = `const url = 'http://127.0.0.1:8000/api/documents/extract/';\nconst token = '${displayToken}';\nconst formData = new FormData();\nformData.append('document_type', '1');\nformData.append('pdf', pdfFile);\n\nfetch(url, {\n  method: 'POST',\n  headers: {'Authorization': \`Bearer \${token}\`},\n  body: formData\n}).then(res => res.json()).then(console.log);`;
+  const pythonCode = `import requests\n\nurl = "http://127.0.0.1:8000/api/documents/extract/"\nheaders = {"Authorization": "Bearer ${displayToken}"}\nfiles = {"pdf": open("documento.pdf", "rb")}\ndata = {"document_type": 1}  # opcional: "group": 1 valida que el tipo pertenezca al grupo\n\nresponse = requests.post(url, headers=headers, files=files, data=data)\nprint(response.json())`;
+  const jsCode = `const url = 'http://127.0.0.1:8000/api/documents/extract/';\nconst token = '${displayToken}';\nconst formData = new FormData();\nformData.append('document_type', '1');\n// opcional: formData.append('group', '1'); valida que el tipo pertenezca al grupo\nformData.append('pdf', pdfFile);\n\nfetch(url, {\n  method: 'POST',\n  headers: {'Authorization': \`Bearer \${token}\`},\n  body: formData\n}).then(res => res.json()).then(console.log);`;
 
   return (
     <div className="dashboard-container">
@@ -406,6 +412,17 @@ export const ModelTraining: React.FC = () => {
                       <select className="form-input" value={selectedTestType} onChange={(e) => setSelectedTestType(parseInt(e.target.value))}>
                         <option value={0}>{t('testing.selectPlaceholder')}</option>
                         {documentTypes.map(dt => <option key={dt.id} value={dt.id}>{dt.name}</option>)}
+                      </select>
+                    </div>
+                    <div className="custom-input-group">
+                      <label>{t('testing.group')}</label>
+                      <select
+                        className="form-input"
+                        value={selectedTestGroup ?? ''}
+                        onChange={(e) => setSelectedTestGroup(e.target.value ? Number(e.target.value) : null)}
+                      >
+                        <option value="">{t('testing.noGroup')}</option>
+                        {documentGroups.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
                       </select>
                     </div>
                     <div className="custom-input-group">

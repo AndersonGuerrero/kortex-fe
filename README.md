@@ -73,6 +73,7 @@ expuestas al cliente.
     - `Login.tsx`, `Callback.tsx`, `ProtectedRoute.tsx`: Flujo de autenticación Auth0.
     - `ProjectDetails.tsx`, `Etiquetado.tsx`, `PdfEditor.tsx`: Detalle de tipos de
       documento, etiquetado y edición de PDF.
+    - `DocumentGroups.tsx`: Gestión de grupos de documentos en el Dashboard.
     - `ModelTraining.tsx`: Gestión y entrenamiento del modelo de IA.
     - `Billing.tsx`: Facturación e integración con Wompi.
     - `KortexLogo.tsx`, `LanguageToggle.tsx`: Componentes de UI.

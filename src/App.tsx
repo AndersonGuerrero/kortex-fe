@@ -5,7 +5,7 @@ import { LogOut, FileText, Cpu, Database, CheckCircle, Plus, Folder, X, Sun, Moo
 import { KortexLogo } from './components/KortexLogo';
 import { LanguageToggle } from './components/LanguageToggle';
 import { apiService } from './services/api';
-import type { DocumentType, UserAIModel } from './services/api';
+import type { DocumentGroup, DocumentType, UserAIModel } from './services/api';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Login } from './components/Login';
 import { Callback } from './components/Callback';
@@ -14,6 +14,7 @@ import { Etiquetado } from './components/Etiquetado';
 import { PdfEditor } from './components/PdfEditor';
 import { ModelTraining } from './components/ModelTraining';
 import { Billing } from './components/Billing';
+import { DocumentGroups } from './components/DocumentGroups';
 import './App.css';
 
 /**
@@ -23,6 +24,7 @@ import './App.css';
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation('app');
   const [documentTypes, setDocumentTypes] = useState<DocumentType[]>([]);
+  const [documentGroups, setDocumentGroups] = useState<DocumentGroup[]>([]);
   const [userModel, setUserModel] = useState<UserAIModel | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newTypeName, setNewTypeName] = useState('');
@@ -54,8 +56,12 @@ export const Dashboard: React.FC = () => {
     setIsLoading(true);
     setDashboardError(null);
     try {
-      const typesData = await apiService.getDocumentTypes();
+      const [typesData, groupsData] = await Promise.all([
+        apiService.getDocumentTypes(),
+        apiService.getDocumentGroups(),
+      ]);
       setDocumentTypes(typesData);
+      setDocumentGroups(groupsData);
 
       const modelData = await apiService.getUserAIModel();
       setUserModel(modelData);
@@ -210,6 +216,16 @@ export const Dashboard: React.FC = () => {
           </div>
         </section>
 
+        {!isLoading && !dashboardError && (
+          <DocumentGroups
+            groups={documentGroups}
+            onGroupsChange={setDocumentGroups}
+            onGroupDeleted={(groupId) =>
+              setDocumentTypes((prev) => prev.map((dt) => (dt.group === groupId ? { ...dt, group: null } : dt)))
+            }
+          />
+        )}
+
         {/* Sección de Tipos de Documento */}
         <section className="projects-section">
           <div className="projects-header">
@@ -255,6 +271,11 @@ export const Dashboard: React.FC = () => {
                       <span className="project-date">
                         {t('projects.createdOn', { date: new Date(type.created_at).toLocaleDateString() })}
                       </span>
+                      {type.group !== null && (
+                        <span className="badge">
+                          {documentGroups.find((g) => g.id === type.group)?.name}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="project-footer">

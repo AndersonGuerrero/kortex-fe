@@ -1,12 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Dashboard } from './App';
 import { apiService } from './services/api';
+import type { UserAIModel } from './services/api';
 
 vi.mock('./services/api', () => ({
   apiService: {
     getDocumentTypes: vi.fn(),
+    getDocumentGroups: vi.fn(),
     getUserAIModel: vi.fn(),
     logout: vi.fn(),
     createDocumentType: vi.fn(),
@@ -24,6 +26,25 @@ function renderDashboard() {
 describe('Dashboard', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.mocked(apiService.getDocumentGroups).mockResolvedValue([]);
+  });
+
+  it('shows the group name on the card of a grouped document type', async () => {
+    vi.mocked(apiService.getDocumentGroups).mockResolvedValue([
+      { id: 3, name: 'Contabilidad', created_at: '2026-10-01T00:00:00Z' },
+    ]);
+    vi.mocked(apiService.getDocumentTypes).mockResolvedValue([
+      { id: 1, name: 'Factura', group: 3, created_at: '2026-10-01T00:00:00Z' },
+      { id: 2, name: 'Contrato', group: null, created_at: '2026-10-01T00:00:00Z' },
+    ]);
+    vi.mocked(apiService.getUserAIModel).mockResolvedValue({} as UserAIModel);
+
+    renderDashboard();
+
+    const facturaCard = (await screen.findByText('Factura')).closest('a') as HTMLElement;
+    expect(within(facturaCard).getByText('Contabilidad')).toBeInTheDocument();
+    const contratoCard = screen.getByText('Contrato').closest('a') as HTMLElement;
+    expect(within(contratoCard).queryByText('Contabilidad')).not.toBeInTheDocument();
   });
 
   it('shows the legitimate empty state when the account genuinely has no document types', async () => {
