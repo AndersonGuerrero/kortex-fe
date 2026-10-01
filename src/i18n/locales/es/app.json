@@ -42,5 +42,26 @@
     "loadDashboard": "Error al cargar el dashboard.",
     "nameRequired": "El nombre del tipo de documento es obligatorio.",
     "createFailed": "No se pudo crear el tipo de documento. Reinténtalo."
+  },
+  "groups": {
+    "title": "Tus Grupos de Documentos",
+    "new": "Nuevo Grupo",
+    "emptyState": "No tienes grupos. Agrupa tus tipos de documento para validar en la extracción que el tipo enviado pertenece al grupo.",
+    "rename": "Renombrar grupo",
+    "delete": "Eliminar grupo",
+    "deleteConfirm": "¿Eliminar el grupo \"{{name}}\"? Sus tipos de documento quedarán sin grupo.",
+    "modal": {
+      "createTitle": "Crear Grupo de Documentos",
+      "renameTitle": "Renombrar Grupo",
+      "nameLabel": "Nombre del grupo",
+      "namePlaceholder": "Ej. Contabilidad, Proveedores",
+      "save": "Guardar",
+      "saving": "Guardando..."
+    },
+    "errors": {
+      "nameRequired": "El nombre del grupo es obligatorio.",
+      "saveFailed": "No se pudo guardar el grupo. Reinténtalo.",
+      "deleteFailed": "No se pudo eliminar el grupo. Reinténtalo."
+    }
   }
 }

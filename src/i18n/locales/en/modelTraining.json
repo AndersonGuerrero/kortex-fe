@@ -29,7 +29,9 @@
     "processing": "Processing...",
     "runExtraction": "Run Extraction",
     "resultsHeader": "EXTRACTION RESULTS",
-    "waitingForInput": "Waiting for input data..."
+    "waitingForInput": "Waiting for input data...",
+    "group": "Group (optional)",
+    "noGroup": "No group (don't validate)"
   },
   "logs": {
     "systemReady": "[INFO] [{{time}}] AI system ready.",

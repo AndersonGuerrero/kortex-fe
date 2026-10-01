@@ -38,6 +38,10 @@
     "addPaymentMethodFailed": "Error registrando método de pago",
     "deletePaymentMethodFailed": "Error eliminando método de pago",
     "loadWompiWidgetConfigFailed": "Error obteniendo configuración del widget de Wompi",
-    "completeWidgetFailed": "Error guardando la tarjeta después del widget."
+    "completeWidgetFailed": "Error guardando la tarjeta después del widget.",
+    "loadDocumentGroupsFailed": "Error al cargar los grupos de documentos",
+    "createDocumentGroupFailed": "Error al crear el grupo de documentos",
+    "updateDocumentGroupFailed": "Error al actualizar el grupo de documentos",
+    "deleteDocumentGroupFailed": "Error al eliminar el grupo de documentos"
   }
 }

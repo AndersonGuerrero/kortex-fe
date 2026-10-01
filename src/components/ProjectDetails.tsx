@@ -7,7 +7,7 @@ import {
   Sun, Moon
 } from 'lucide-react';
 import { apiService } from '../services/api';
-import type { DocumentType, Document, Label } from '../services/api';
+import type { DocumentGroup, DocumentType, Document, Label } from '../services/api';
 import { LABEL_TIPOS } from '../services/api';
 import { LanguageToggle } from './LanguageToggle';
 
@@ -49,6 +49,8 @@ export const ProjectDetails: React.FC = () => {
   // Estados de carga y modales
   const [isEditTypeOpen, setIsEditTypeOpen] = useState(false);
   const [editTypeName, setEditTypeName] = useState('');
+  const [editTypeGroup, setEditTypeGroup] = useState<number | null>(null);
+  const [documentGroups, setDocumentGroups] = useState<DocumentGroup[]>([]);
   const [isUploading, setIsUploading] = useState(false);
 
   // Estados de etiquetas
@@ -115,7 +117,11 @@ export const ProjectDetails: React.FC = () => {
     const loadData = async () => {
       try {
         // Cargar tipo de documento
-        const documentTypesList = await apiService.getDocumentTypes();
+        const [documentTypesList, groupsList] = await Promise.all([
+          apiService.getDocumentTypes(),
+          apiService.getDocumentGroups(),
+        ]);
+        setDocumentGroups(groupsList);
         const foundType = documentTypesList.find((p) => p.id === documentTypeId);
         if (!foundType) {
           navigate('/', { replace: true });
@@ -123,6 +129,7 @@ export const ProjectDetails: React.FC = () => {
         }
         setDocumentType(foundType);
         setEditTypeName(foundType.name);
+        setEditTypeGroup(foundType.group);
 
         // Cargar documentos (ejemplos)
         const docsList = await apiService.getDocuments(documentTypeId);
@@ -151,7 +158,10 @@ export const ProjectDetails: React.FC = () => {
     if (!editTypeName.trim()) return;
 
     try {
-      const updated = await apiService.updateDocumentType(documentTypeId, editTypeName);
+      const updated = await apiService.updateDocumentType(documentTypeId, {
+        name: editTypeName,
+        group: editTypeGroup,
+      });
       setDocumentType(updated);
       setIsEditTypeOpen(false);
     } catch (err: unknown) {
@@ -301,6 +311,9 @@ export const ProjectDetails: React.FC = () => {
           </Link>
           <h1 className="brand-title">{documentType.name}</h1>
           <span className="badge">{t('header.detailsBadge')}</span>
+          {documentType.group !== null && (
+            <span className="badge">{documentGroups.find((g) => g.id === documentType.group)?.name}</span>
+          )}
         </div>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <LanguageToggle />
@@ -596,6 +609,22 @@ export const ProjectDetails: React.FC = () => {
                     required
                     autoFocus
                   />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="editTypeGroupInput">
+                    {t('editTypeModal.groupLabel')}
+                  </label>
+                  <select
+                    id="editTypeGroupInput"
+                    className="form-input"
+                    value={editTypeGroup ?? ''}
+                    onChange={(e) => setEditTypeGroup(e.target.value ? Number(e.target.value) : null)}
+                  >
+                    <option value="">{t('editTypeModal.noGroup')}</option>
+                    {documentGroups.map((g) => (
+                      <option key={g.id} value={g.id}>{g.name}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="modal-footer">

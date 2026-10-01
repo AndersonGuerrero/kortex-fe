@@ -38,6 +38,10 @@
     "addPaymentMethodFailed": "Failed to register payment method",
     "deletePaymentMethodFailed": "Failed to delete payment method",
     "loadWompiWidgetConfigFailed": "Failed to fetch Wompi widget configuration",
-    "completeWidgetFailed": "Failed to save the card after the widget."
+    "completeWidgetFailed": "Failed to save the card after the widget.",
+    "loadDocumentGroupsFailed": "Failed to load document groups",
+    "createDocumentGroupFailed": "Failed to create document group",
+    "updateDocumentGroupFailed": "Failed to update document group",
+    "deleteDocumentGroupFailed": "Failed to delete document group"
   }
 }
