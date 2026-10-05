@@ -24,11 +24,6 @@
     "editTitle": "Editar",
     "deleteTitle": "Eliminar"
   },
-  "modelSection": {
-    "title": "🧠 IA y Extracción",
-    "description": "Accede a la configuración avanzada e inicia el entrenamiento del extractor inteligente global.",
-    "cta": "Configurar y Entrenar IA"
-  },
   "documentsPanel": {
     "title": "Ejemplos de Entrenamiento ({{count}})",
     "empty": "Aún no se han cargado ejemplos para entrenar en este tipo de documento.",
