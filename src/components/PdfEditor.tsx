@@ -8,6 +8,7 @@ import { PDFDocument, PDFName, rgb, StandardFonts } from 'pdf-lib';
 const pdfjsLib = (window as any).pdfjsLib;
 import pako from 'pako';
 import { apiService } from '../services/api';
+import { fileNameFromUrl } from '../utils/fileName';
 
 
 // ====== Interfaces ======
@@ -158,10 +159,7 @@ export const PdfEditor: React.FC = () => {
         const doc = await apiService.getDocument(documentId);
         setDocumentTypeId(doc.document_type);
 
-        // Extraer nombre del archivo de la URL
-        const decoded = decodeURIComponent(doc.pdf);
-        const parts = decoded.split('/');
-        setPdfFilename(parts[parts.length - 1] || 'documento.pdf');
+        setPdfFilename(fileNameFromUrl(doc.pdf) || 'documento.pdf');
 
         // Descargar los bytes del PDF
         const arrayBuffer = await apiService.getDocumentPdfBytes(doc.pdf);

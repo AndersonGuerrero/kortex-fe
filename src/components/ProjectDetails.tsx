@@ -7,6 +7,7 @@ import {
   Sun, Moon
 } from 'lucide-react';
 import { apiService } from '../services/api';
+import { fileNameFromUrl } from '../utils/fileName';
 import type { DocumentGroup, DocumentType, Document, Label } from '../services/api';
 import { LABEL_TIPOS } from '../services/api';
 import { LanguageToggle } from './LanguageToggle';
@@ -285,12 +286,8 @@ export const ProjectDetails: React.FC = () => {
     setEditingLabelTipo(label.tipo || 'texto');
   };
 
-  // Extraer el nombre de archivo de la URL de Django
-  const getFileName = (url: string) => {
-    const decoded = decodeURIComponent(url);
-    const parts = decoded.split('/');
-    return parts[parts.length - 1] || t('documentsPanel.defaultFileName');
-  };
+  const getFileName = (url: string) =>
+    fileNameFromUrl(url) || t('documentsPanel.defaultFileName');
 
   if (isLoading) {
     return (
@@ -488,22 +485,6 @@ export const ProjectDetails: React.FC = () => {
                   })}
                 </div>
               )}
-            </div>
-
-            {/* Redirección a Entrenamiento del Modelo IA */}
-            <div className="model-training-section" style={{ marginTop: '32px', borderTop: theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.06)', paddingTop: '24px' }}>
-              <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span>{t('modelSection.title')}</span>
-              </h3>
-              <p className="panel-desc">{t('modelSection.description')}</p>
-
-              <Link
-                to="/models"
-                className="btn-primary"
-                style={{ width: '100%', justifyContent: 'center', textDecoration: 'none', background: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)' }}
-              >
-                {t('modelSection.cta')}
-              </Link>
             </div>
           </div>
 

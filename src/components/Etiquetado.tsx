@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ZoomIn, ZoomOut, RotateCcw, Save, RefreshCw, BookOpen, ChevronUp, ChevronDown, GripVertical } from 'lucide-react';
 import { apiService, LABEL_TIPOS } from '../services/api';
+import { fileNameFromUrl } from '../utils/fileName';
 import type { Document, Label } from '../services/api';
 import './Etiquetado.css';
 
@@ -363,11 +364,7 @@ export const Etiquetado: React.FC = () => {
     }
   }, [zoom, documentMeta]);
 
-  const getFileName = (url: string) => {
-    const decoded = decodeURIComponent(url);
-    const parts = decoded.split('/');
-    return parts[parts.length - 1] || t('defaults.fileName');
-  };
+  const getFileName = (url: string) => fileNameFromUrl(url) || t('defaults.fileName');
 
   // Zoom handlers
   const handleZoomIn = () => setZoom(prev => Math.min(3.0, parseFloat((prev + 0.15).toFixed(2))));

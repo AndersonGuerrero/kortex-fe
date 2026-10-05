@@ -24,11 +24,6 @@
     "editTitle": "Edit",
     "deleteTitle": "Delete"
   },
-  "modelSection": {
-    "title": "🧠 AI & Extraction",
-    "description": "Access advanced settings and start training the global intelligent extractor.",
-    "cta": "Configure and Train AI"
-  },
   "documentsPanel": {
     "title": "Training Examples ({{count}})",
     "empty": "No examples have been uploaded yet to train this document type.",
